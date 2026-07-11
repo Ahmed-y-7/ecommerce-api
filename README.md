@@ -51,11 +51,3 @@ celery -A config worker -l info
 pytest
 ```
 Tests use SQLite in-memory + eager Celery, so no services are needed.
-
-## Notes
-- Custom `User` model: login with **email**, no username.
-- Discount codes: percentage or fixed coupons with expiry, usage limits, and minimum order total.
-- Product images: multiple per product, admin inline upload, served from /media/ in dev.
-- Checkout locks product rows (`select_for_update`) - no overselling.
-- Without a `STRIPE_SECRET_KEY`, payments run in stub mode (fake client_secret).
-- Settings split: `base.py` / `development.py` / `production.py` / `test.py`.
